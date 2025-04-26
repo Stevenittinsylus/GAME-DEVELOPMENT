@@ -1,63 +1,85 @@
-EX 1: DDA ALGORITHM
-Aim :
+# EX 3 : Circle Drawing Algorithm
 
-To implement the DDA algorithm to draw a line using a c coding
+**AIM :**
 
-Algorithms :
+To  implement the Bresenham’s  algorithm for circle using a c coding.
 
-Step 1 − Get the input of two end points (X0,Y0) and (X1,Y1)
 
-Step 2 − Calculate the difference between two end points dx and dy
+**ALGORITHM :**
 
-Step 3 − If dx > dy, then you need more steps in x coordinate; otherwise in y coordinate.
+Step 1 : Start.
+    
+Step 2 : Initialize the graphics header files and functions.
+   
+Step 3 : Declare the required variables and functions.
+ 
+Step 4 : Get the co-ordinates and radius of the circle.
 
-Step 4 − Calculate the increment in x coordinate and y coordinate
+Step 5 : Draw the circle using the algorithm.
 
-Step 5 − Plot the pixel by successfully incrementing x and y coordinates accordingly and complete the drawing of the line
+Step  6 : Display the output.
+  
+Step 7 : stop.
 
-Program :
-'''
-#include <graphics.h>
-#include <stdio.h>
-#include <math.h>
-#include <dos.h>
+**Program :**
 
-void main( )
+```
+#include "stdio.h"
+#include "conio.h"
+#include "math.h"
+#include "graphics.h"
+main()
 {
-	float x,y,x1,y1,x2,y2,dx,dy,step;
-	int i,gd=DETECT,gm;
-
-	initgraph(&gd,&gm,"c:\\turboc3\\bgi");
-
-	printf("Enter the value of x1 and y1 : ");
-	scanf("%f%f",&x1,&y1);
-	printf("Enter the value of x2 and y2: ");
-	scanf("%f%f",&x2,&y2);
-
-	dx=abs(x2-x1);
-	dy=abs(y2-y1);
-
-	if(dx>=dy)
-		step=dx;
-	else
-		step=dy;
-
-	dx=dx/step;
-	dy=dy/step;
-
-	x=x1;
-	y=y1;
-
-	i=1;
-	while(i<=step)
-	{
-		putpixel(x,y,5);
-		x=x+dx;
-		y=y+dy;
-		i=i+1;
-		delay(100);
-	}
-
-	closegraph();
+int gd=DETECT,gm;
+int xcenter,ycenter,radius;
+int p,x,y;
+initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+x=0;
+printf("Enter The Radius Value:\n");
+scanf("%d",&radius);
+y=radius;
+printf("Enter The xcenter and ycenter Values:\n");
+scanf("%d%d",&xcenter,&ycenter);
+plotpoints(xcenter,ycenter,x,y);
+p=1-radius;
+while(x<y)
+ { if(p<0)
+x=x+1;
+else
+{
+x=x+1;
+y=y-1;
 }
-'''
+if(p<0)
+p=p+2*x+1;
+else
+p=p+2*(x-y)+1;
+plotpoints(xcenter,ycenter,x,y);
+ }
+ getch();
+ return(0);
+ }
+int plotpoints(int xcenter,int ycenter,int x,int y)
+{
+putpixel(xcenter+x,ycenter+y,1);
+putpixel(xcenter-x,ycenter+y,1);
+putpixel(xcenter+x,ycenter-y,1);
+putpixel(xcenter-x,ycenter-y,1);
+putpixel(xcenter+y,ycenter+x,1);
+putpixel(xcenter-y,ycenter+x,1);
+putpixel(xcenter+y,ycenter-x,1);
+putpixel(xcenter-y,ycenter-x,1);
+}
+Program to implement the Bresenham’s  algorithm for circle using a c coding.
+Developed by: Steve nithin sylus
+Register Number: 212224040331
+```
+
+**Output :**
+
+![WhatsApp Image 2025-04-25 at 09 21 32_cf1d42ae](https://github.com/user-attachments/assets/2ebf71af-56e1-4fb9-b271-6296c9cad220)
+
+
+**Result :**
+
+Thus the Bresenham’s  algorithm for circle using a c coding is implemented successfully.
