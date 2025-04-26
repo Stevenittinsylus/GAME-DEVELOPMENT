@@ -71,7 +71,7 @@ putpixel(xcenter+y,ycenter-x,1);
 putpixel(xcenter-y,ycenter-x,1);
 }
 Program to implement the Bresenham’s  algorithm for circle using a c coding.
-Developed by: Steve nithin sylus
+Developed by: Steve nittin sylus
 Register Number: 212224040331
 ```
 
